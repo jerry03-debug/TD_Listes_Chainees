@@ -2,17 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Définition de la structure d'un maillon de la liste chaînée
 struct maillon {
     char *mot;
     struct maillon *suiv;
 };
 
+// Alias pour simplifier l'utilisation de la structure
 typedef struct maillon MAILLON, *PTR;
 
+// Fonction pour ajouter un nouveau maillon au début de la liste
 PTR ajoute_debut(char *mot, PTR L) {
 
     PTR nouveau = (PTR)malloc(sizeof(MAILLON));
      //nouveau->mot = *mot;
+    // Allocation de mémoire pour copier et stocker le mot dans le nouveau maillon
     nouveau->mot = malloc(strlen(mot) + 1); 
     strcpy(nouveau->mot, mot);
     nouveau->suiv = L;
